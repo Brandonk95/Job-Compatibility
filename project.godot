@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Job Matching Program"
+run/main_scene="uid://ch0qo2c1s53sn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalScript="*res://globalScript.gd"
 
 [display]
 

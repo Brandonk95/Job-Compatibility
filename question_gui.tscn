@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b8406mfce1o2e"]
+[gd_scene load_steps=2 format=3 uid="uid://b8406mfce1o2e"]
+
+[ext_resource type="Script" uid="uid://bxrwlu2xxhiuu" path="res://question_gui.gd" id="1_fl6cr"]
 
 [node name="Question Gui" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fl6cr")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -56,3 +59,10 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+text = "The Question"
+
+[connection signal="pressed" from="HBoxContainer/Love" to="." method="_on_love_pressed"]
+[connection signal="pressed" from="HBoxContainer/Like" to="." method="_on_like_pressed"]
+[connection signal="pressed" from="HBoxContainer/Unsure" to="." method="_on_unsure_pressed"]
+[connection signal="pressed" from="HBoxContainer/Dislike" to="." method="_on_dislike_pressed"]
+[connection signal="pressed" from="HBoxContainer/Hate" to="." method="_on_hate_pressed"]

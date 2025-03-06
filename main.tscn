@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://ch0qo2c1s53sn"]
+[gd_scene load_steps=3 format=3 uid="uid://ch0qo2c1s53sn"]
+
+[ext_resource type="Script" uid="uid://dhsgqicf7q5qu" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b8406mfce1o2e" path="res://question_gui.tscn" id="2_h2yge"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_0xm2m")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Question Gui" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+
+[connection signal="test" from="CanvasLayer/Question Gui" to="." method="_on_question_gui_test"]
