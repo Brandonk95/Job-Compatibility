@@ -11,10 +11,13 @@ config_version=5
 [application]
 
 config/name="Job Matching Program"
+run/main_scene="uid://ch0qo2c1s53sn"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=2
