@@ -1,11 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://b66sm45tvcunj"]
+[gd_scene load_steps=4 format=3 uid="uid://b66sm45tvcunj"]
 
 [ext_resource type="Script" uid="uid://bqjivohh87ls0" path="res://main_menu.gd" id="1_5b7ti"]
+[ext_resource type="Texture2D" uid="uid://bik2r20gau0fy" path="res://Background.png" id="2_dvdtt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvdtt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Main Menu" type="Node2D"]
 script = ExtResource("1_5b7ti")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(969, 536)
+scale = Vector2(1.33529, 1.33529)
+texture = ExtResource("2_dvdtt")
 
 [node name="Title" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
@@ -31,7 +44,9 @@ offset_right = 235.0
 offset_bottom = 45.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvdtt")
 text = "Get Me That Job"
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
