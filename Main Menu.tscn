@@ -1,7 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://b66sm45tvcunj"]
+[gd_scene load_steps=6 format=3 uid="uid://b66sm45tvcunj"]
 
 [ext_resource type="Script" uid="uid://bqjivohh87ls0" path="res://main_menu.gd" id="1_5b7ti"]
 [ext_resource type="Texture2D" uid="uid://bik2r20gau0fy" path="res://Background.png" id="2_dvdtt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12kdf"]
+bg_color = Color(0.817522, 0.817521, 0.817522, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5qic"]
+bg_color = Color(0.712129, 0.712129, 0.712129, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvdtt"]
 bg_color = Color(1, 1, 1, 1)
@@ -32,20 +42,43 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 120
 text = "Job Matcher"
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -235.0
-offset_top = -45.5
-offset_right = 235.0
-offset_bottom = 45.5
+offset_left = -209.0
+offset_top = -240.0
+offset_right = 209.0
+offset_bottom = -171.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+text = "It starts with a $0"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -235.0
+offset_top = -230.0
+offset_right = 235.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_i5qic")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dvdtt")
 text = "Get Me That Job"
 
