@@ -2,14 +2,14 @@ extends Control
 
 @export var questionNumber: int = 1
 var question: String = ""
-signal test
+signal nextQuestion(index: int)
 func _ready() -> void:
 	question = GlobalScript.getQuestion(questionNumber)
 	$Question.text = question
 
 func pushValueGlobal(amount: int):
 	GlobalScript.updateCareerCluster(question, amount)
-	test.emit()
+	nextQuestion.emit(questionNumber)
 
 
 func _on_love_pressed() -> void:
