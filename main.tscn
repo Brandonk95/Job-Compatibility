@@ -16,17 +16,190 @@ script = ExtResource("2_1bvp3")
 questionNumber = 2
 
 [node name="Q3" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 3
 
 [node name="Q4" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 4
 
 [node name="Q5" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 5
 
 [node name="Q6" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 6
 
 [node name="Q7" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 7
 
 [node name="Q8" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 8
 
 [node name="Q9" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 9
 
 [node name="Q10" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 10
+
+[node name="Q11" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 11
+
+[node name="Q12" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 12
+
+[node name="Q13" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 13
+
+[node name="Q14" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 14
+
+[node name="Q15" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 15
+
+[node name="Q16" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 16
+
+[node name="Q17" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 17
+
+[node name="Q18" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 18
+
+[node name="Q19" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 19
+
+[node name="Q20" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 20
+
+[node name="Q21" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 21
+
+[node name="Q22" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 22
+
+[node name="Q23" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 23
+
+[node name="Q24" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 24
+
+[node name="Q25" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 25
+
+[node name="Q26" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 26
+
+[node name="Q27" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 27
+
+[node name="Q28" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 28
+
+[node name="Q29" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 29
+
+[node name="Q30" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 30
+
+[node name="Q31" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 31
+
+[node name="Q32" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 32
+
+[node name="Q33" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 33
+
+[node name="Q34" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 34
+
+[node name="Q35" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 35
+
+[node name="Q36" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 36
+
+[node name="Q37" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 37
+
+[node name="Q38" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 38
+
+[node name="Q39" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 39
+
+[node name="Q40" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 40
+
+[node name="Q41" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 41
+
+[node name="Q42" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 42
+
+[node name="Q43" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 43
+
+[node name="Q44" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 44
+
+[node name="Q45" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 45
+
+[node name="Q46" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 46
+
+[node name="Q47" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 47
+
+[node name="Q48" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 48
+
+[node name="Q49" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 49
+
+[node name="Q50" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 50
+
+[node name="Q51" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 51
+
+[node name="Q52" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 52
+
+[node name="Q53" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 53
+
+[node name="Q54" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 54
+
+[node name="Q55" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 55
+
+[node name="Q56" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 56
+
+[node name="Q57" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 57
+
+[node name="Q58" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 58
+
+[node name="Q59" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 59
+
+[node name="Q60" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 60
+
+[node name="Q61" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 61
+
+[node name="Q62" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 62
+
+[node name="Q63" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 63
+
+[node name="Q64" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 64
+
+[node name="Q65" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+questionNumber = 65

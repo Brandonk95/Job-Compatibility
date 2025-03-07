@@ -17,6 +17,8 @@ its question number in which is 1 more than its actual index in the tree
 """
 func nextQuestion(index: int):
 	var node = $CanvasLayer.get_child(index - 1)
+	if index == 66:
+		pass
 	var newNode = $CanvasLayer.get_child(index)
 	
 	node.hide()

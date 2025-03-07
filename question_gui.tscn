@@ -55,12 +55,15 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -664.0
+offset_right = 664.0
+offset_bottom = 83.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 60
 text = "The Question"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="HBoxContainer/Love" to="." method="_on_love_pressed"]
 [connection signal="pressed" from="HBoxContainer/Like" to="." method="_on_like_pressed"]
