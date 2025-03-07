@@ -59,6 +59,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
 text = "The Question"
 
 [connection signal="pressed" from="HBoxContainer/Love" to="." method="_on_love_pressed"]
