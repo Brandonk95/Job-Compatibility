@@ -1,5 +1,6 @@
 extends Node2D
 
+
 func _ready():
 	var questions = $CanvasLayer.get_children()
 	for Q in questions:
@@ -17,9 +18,13 @@ its question number in which is 1 more than its actual index in the tree
 """
 func nextQuestion(index: int):
 	var node = $CanvasLayer.get_child(index - 1)
-	if index == 66:
-		pass
+	if index == 65:
+		node.hide()
+		readyResults()
+		return
 	var newNode = $CanvasLayer.get_child(index)
-	
 	node.hide()
 	newNode.show()
+
+func readyResults():
+	GlobalScript.getTopClusters()

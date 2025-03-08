@@ -45,3 +45,24 @@ func updateCareerCluster(question: String, amount: int):
 func changeValue(question: String, amount: int):
 	var newValue = ClusterValues[Clusters[question]] + amount
 	ClusterValues[Clusters[question]] = newValue
+
+func getTopClusters():
+	var keys = ClusterValues.keys()
+	var values = ClusterValues.values()
+	var keyValuePairs = []
+	
+	for i in range(keys.size()):
+		keyValuePairs.append([keys[i], values[i]])
+	keyValuePairs.sort_custom(func(a, b):
+		return a[1] - b[1]
+	)
+	
+	var sorted = {}
+	for pair in keyValuePairs:
+		sorted[pair[0]] = pair[1]
+		
+	var top_3 = keyValuePairs.slice(0,3)
+	
+	for pair in top_3:
+		print(pair[0], ':', pair[1])
+	
