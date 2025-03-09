@@ -8,8 +8,10 @@ var current_response = ""
 var response_chunk = ""
 var is_generating = false
 
+
+
 func _ready():
-	add_child(http_request)
+	add_child(http_request) #Theres an error here pookie
 	http_request.connect("request_completed", Callable(self, "_on_request_completed"))
 	
 func _physics_process(delta):

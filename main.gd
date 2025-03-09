@@ -1,6 +1,6 @@
 extends Node2D
 
-
+#Gets all the nodes and connects the button clicking to the nextQuestion function
 func _ready():
 	var questions = $CanvasLayer.get_children()
 	for Q in questions:
@@ -10,7 +10,7 @@ func _ready():
 	$CanvasLayer/Q1.show()
 
 """
-The newx question function takes an index and hides that question
+The next question function takes an index and hides that question
 and shows the next question
 
 The reason it subtracts 1 from the index is becasue the question passes
@@ -26,5 +26,7 @@ func nextQuestion(index: int):
 	node.hide()
 	newNode.show()
 
+#This calls the GLobalScript to get the top cluster values
+# GET TOP CLUSTERS RETURNS NOTHING RN CHANGE TO RETURN FOR PRACTICAL USE
 func readyResults():
 	GlobalScript.getTopClusters()

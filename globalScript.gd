@@ -46,6 +46,8 @@ func changeValue(question: String, amount: int):
 	var newValue = ClusterValues[Clusters[question]] + amount
 	ClusterValues[Clusters[question]] = newValue
 
+# This takes the cluster values and sorts them
+# As of now it prints out the results but return will be needed
 func getTopClusters():
 	var keys = ClusterValues.keys()
 	var values = ClusterValues.values()
