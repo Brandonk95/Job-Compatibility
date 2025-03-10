@@ -1,5 +1,4 @@
 extends Node
-@export var input : TextEdit
 @export var http_request : HTTPRequest
 @export var text_response : Label
 @export var prompt:String
@@ -8,33 +7,20 @@ var result
 var current_response = ""
 var response_chunk = ""
 var is_generating = false
-
+var response_message
 
 
 func _ready():
-	var scene = scene
-	#$JobTitle.text = get_meta("JobName")
+	$JobDescription.text = "Loading A Breif Description..."
+	$JobTitle.text = get_meta("JobName")
 	#send_to_ollama(get_meta("JobName"))
-	send_to_ollama("cum")
+	send_to_ollama(get_meta("JobName"))
 	#add_child(http_request) #Theres an error here pookie
-	http_request.connect("request_completed", Callable(self, "_on_request_completed"))
+	$HTTPRequest.request_completed.connect(_on_http_request_request_completed)
 	
 func _physics_process(delta):
-
-	if Input.is_action_just_pressed("enter"):
-		send_to_ollama(input.text)
-		print("sent: " + input.text)
-		input.clear()
-		
-	if is_generating:
-		if response_chunk != "":
-			current_response += response_chunk
-			text_response.text = current_response
-			response_chunk = "" 
-
+	pass
 	
-func add_message(text):
-	text_response.append_text(text + "\n")
 
 func send_to_ollama(message):
 	message = "Prompt: \n" + prompt + "\n" + type + "\nMessage:" + message
@@ -47,16 +33,10 @@ func send_to_ollama(message):
 		"stream": false
 	})
 	is_generating = true	
-	var error = http_request.request(url, headers, HTTPClient.METHOD_POST, body)
+	var error = $HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, body)
 	print(error)
 	if error != OK:
 		print("An error occurred in the HTTP request.")
-
-
-func _on_button_pressed():
-	send_to_ollama(input.text)
-	print("sent: " + input.text)
-	input.clear()
 
 
 func _on_http_request_request_completed(result, response_code, headers, body):
@@ -71,7 +51,8 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 			var json_response = json_instance.get_data()
 			var response_message = json_response.get("response", "No response key")
 	
-				text_response.text = response_message
+			$JobDescription.text = response_message
+			print(response_message)
 		else:
 			print("Failed to parse JSON response.")
 	else:
