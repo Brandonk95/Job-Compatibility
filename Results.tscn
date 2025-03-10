@@ -71,6 +71,7 @@ transform = Transform2D(0.3, 0, 0, 0.3, 1270, 610)
 metadata/JobName = "IT Manager"
 
 [node name="AI" parent="." instance=ExtResource("5_11usd")]
+visible = false
 
 [connection signal="startChat" from="Pucks/JobPuck" to="." method="openAiChat"]
 [connection signal="startChat" from="Pucks/JobPuck2" to="." method="openAiChat"]

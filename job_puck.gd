@@ -65,4 +65,4 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 
 
 func _on_button_pressed() -> void:
-	startChat.emit($ColorRect/JobDescription.text)
+	startChat.emit($ColorRect/JobTitle.text)

@@ -34,6 +34,8 @@ func _physics_process(delta):
 
 func startLearnMore(text: String):
 	text_response.text = text
+	
+
 func add_message(text):
 	text_response.append_text(text + "\n")
 
