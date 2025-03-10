@@ -1,7 +1,7 @@
 extends Node
 @export var input : TextEdit
 @export var http_request : HTTPRequest
-@export var text_response : Label
+@onready var text_response : Label = $ColorRect/response
 @export var prompt:String
 @export var type:String
 var result
@@ -12,7 +12,7 @@ var is_generating = false
 
 
 func _ready():
-	var scene = scene
+	#var scene = scene
 	#$JobTitle.text = get_meta("JobName")
 	#send_to_ollama(get_meta("JobName"))
 	send_to_ollama("cum")
@@ -32,7 +32,8 @@ func _physics_process(delta):
 			text_response.text = current_response
 			response_chunk = "" 
 
-	
+func startLearnMore(text: String):
+	text_response.text = text
 func add_message(text):
 	text_response.append_text(text + "\n")
 
@@ -70,8 +71,7 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 		if parse_result == OK:
 			var json_response = json_instance.get_data()
 			var response_message = json_response.get("response", "No response key")
-	
-				text_response.text = response_message
+			text_response.text = response_message
 		else:
 			print("Failed to parse JSON response.")
 	else:

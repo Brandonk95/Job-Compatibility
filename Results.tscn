@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmxj2epphoehd"]
+[gd_scene load_steps=6 format=3 uid="uid://dmxj2epphoehd"]
 
 [ext_resource type="PackedScene" uid="uid://da2m8dpp6qch3" path="res://job_puck.tscn" id="1_1eby8"]
+[ext_resource type="Script" uid="uid://c2yk2qj0x4tkt" path="res://results.gd" id="1_10ida"]
 [ext_resource type="Texture2D" uid="uid://bik2r20gau0fy" path="res://Background.png" id="2_k42qf"]
 [ext_resource type="Texture2D" uid="uid://bvm4q7xeys0ul" path="res://Flame.png" id="3_u3bd2"]
+[ext_resource type="PackedScene" uid="uid://cojhimaklr084" path="res://ai.tscn" id="5_11usd"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_10ida")
 
 [node name="Title" type="Label" parent="."]
 z_index = 99
@@ -29,38 +32,49 @@ scale = Vector2(1.43529, 1.43529)
 texture = ExtResource("2_k42qf")
 metadata/_edit_lock_ = true
 
-[node name="JobPuck" parent="." instance=ExtResource("1_1eby8")]
+[node name="Pucks" type="CanvasLayer" parent="."]
+
+[node name="JobPuck" parent="Pucks" instance=ExtResource("1_1eby8")]
 offset = Vector2(70, 250)
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 70, 250)
 metadata/JobName = "Cloud Computing Engineer"
 
-[node name="JobPuck2" parent="." instance=ExtResource("1_1eby8")]
+[node name="JobPuck2" parent="Pucks" instance=ExtResource("1_1eby8")]
 offset = Vector2(670, 250)
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 670, 250)
 metadata/JobName = "Chef"
 
-[node name="JobPuck3" parent="." instance=ExtResource("1_1eby8")]
+[node name="JobPuck3" parent="Pucks" instance=ExtResource("1_1eby8")]
 offset = Vector2(1270, 250)
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 1270, 250)
 metadata/JobName = "Sweat Shop Manager"
 
-[node name="JobPuck4" parent="." instance=ExtResource("1_1eby8")]
+[node name="JobPuck4" parent="Pucks" instance=ExtResource("1_1eby8")]
 offset = Vector2(70, 610)
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 70, 610)
 metadata/JobName = "Teacher"
 
-[node name="JobPuck5" parent="." instance=ExtResource("1_1eby8")]
+[node name="JobPuck5" parent="Pucks" instance=ExtResource("1_1eby8")]
 offset = Vector2(670, 610)
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 670, 610)
 metadata/JobName = "Engineer"
 
-[node name="JobPuck6" parent="." instance=ExtResource("1_1eby8")]
+[node name="JobPuck6" parent="Pucks" instance=ExtResource("1_1eby8")]
 offset = Vector2(1270, 610)
 scale = Vector2(0.3, 0.3)
 transform = Transform2D(0.3, 0, 0, 0.3, 1270, 610)
 metadata/JobName = "IT Manager"
+
+[node name="AI" parent="." instance=ExtResource("5_11usd")]
+
+[connection signal="startChat" from="Pucks/JobPuck" to="." method="openAiChat"]
+[connection signal="startChat" from="Pucks/JobPuck2" to="." method="openAiChat"]
+[connection signal="startChat" from="Pucks/JobPuck3" to="." method="openAiChat"]
+[connection signal="startChat" from="Pucks/JobPuck4" to="." method="openAiChat"]
+[connection signal="startChat" from="Pucks/JobPuck5" to="." method="openAiChat"]
+[connection signal="startChat" from="Pucks/JobPuck6" to="." method="openAiChat"]

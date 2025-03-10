@@ -8,19 +8,23 @@ var current_response = ""
 var response_chunk = ""
 var is_generating = false
 var response_message
-
+signal startChat(currentResponse: String)
 
 func _ready():
-	$JobDescription.text = "Loading A Breif Description..."
-	$JobTitle.text = get_meta("JobName")
+	$ColorRect/JobDescription.text = "Loading A Breif Description..."
+	#$JobTitle.text = get_meta("JobName")
 	#send_to_ollama(get_meta("JobName"))
-	send_to_ollama(get_meta("JobName"))
+	#send_to_ollama(get_meta("JobName"))
 	#add_child(http_request) #Theres an error here pookie
 	$HTTPRequest.request_completed.connect(_on_http_request_request_completed)
 	
 func _physics_process(delta):
 	pass
 	
+func adjustMetaData(job: String):
+	set_meta("JobName",job)
+	$ColorRect/JobTitle.text = get_meta("JobName")
+	send_to_ollama(get_meta("JobName"))
 
 func send_to_ollama(message):
 	message = "Prompt: \n" + prompt + "\n" + type + "\nMessage:" + message
@@ -51,10 +55,14 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 			var json_response = json_instance.get_data()
 			var response_message = json_response.get("response", "No response key")
 	
-			$JobDescription.text = response_message
+			$ColorRect/JobDescription.text = response_message
 			print(response_message)
 		else:
 			print("Failed to parse JSON response.")
 	else:
 		print("Request failed with response code: ", response_code)
 		is_generating = false
+
+
+func _on_button_pressed() -> void:
+	startChat.emit($ColorRect/JobDescription.text)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch0qo2c1s53sn"]
+[gd_scene load_steps=6 format=3 uid="uid://ch0qo2c1s53sn"]
 
 [ext_resource type="Script" uid="uid://dhsgqicf7q5qu" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://btg7eoai4j3n4" path="res://canvas_layer.gd" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8406mfce1o2e" path="res://question_gui.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bik2r20gau0fy" path="res://Background.png" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dmxj2epphoehd" path="res://Results.tscn" id="4_lquwl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
@@ -205,7 +206,13 @@ questionNumber = 64
 [node name="Q65" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
 questionNumber = 65
 
+[node name="Results" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="CanvasLayer" parent="Results" instance=ExtResource("4_lquwl")]
+visible = false
+
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(975, 545)
-scale = Vector2(1.31882, 1.31882)
+scale = Vector2(100, 100)
 texture = ExtResource("4_1bvp3")

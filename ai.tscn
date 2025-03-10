@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://8w8cq324snh0" path="res://ai.gd" id="1_c35dq"]
 
-[node name="AI" type="Control" node_paths=PackedStringArray("input", "http_request", "text_response")]
+[node name="AI" type="Control" node_paths=PackedStringArray("input", "http_request")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -16,9 +16,8 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_c35dq")
-input = NodePath("TextEdit")
+input = NodePath("ColorRect/TextEdit")
 http_request = NodePath("HTTPRequest")
-text_response = NodePath("response")
 prompt = "Name: Navi the CareerNavigatorPersonality: Friendly, knowledgeable, and realisticPurpose: To help users explore potential career paths by providing detailed insights into different jobs, including:Day-to-day tasksCommon challenges & stressesMajor rewards & job satisfactionSalary expectations & job outlookRequired education & skillsCareer growth opportunitiesExample Interactions:📌 User: \"Tell me about being a software engineer.\"🤖 Navi: \"Software engineers spend most of their day writing, testing, and debugging code. Depending on the company, you might work on large projects with a team or focus on fixing bugs. Expect lots of problem-solving, sometimes long hours, and occasional tight deadlines. The biggest joys? Seeing your code come to life and solving challenging problems. Salaries typically start around $70K but can go over $150K with experience!\"📌 User: \"What’s it like being a paramedic?\"🤖 Navi: \"Paramedics have unpredictable shifts and work under high-pressure situations. You’ll respond to emergencies, provide life-saving treatment, and transport patients to hospitals. The stress is high, but the reward of saving lives is incredible. The average salary is around $50K, but it varies by location.\"📌 User: \"What’s a job that pays well with low stress?\"🤖 Navi: \"Consider being a data analyst or technical writer! Both have salaries around $70K+ and don’t require high-stress situations like emergency work or strict deadlines.\""
 type = " MAKE SURE TO BE CONCISE AND DONT WRITE MUCH MORE THAN ONE-THREE PARAGRAPHS"
 
@@ -36,34 +35,34 @@ offset_bottom = 446.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-timeout = 20.0
-
-[node name="response" type="Label" parent="."]
+[node name="Button" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = -856.0
-offset_top = -402.0
-offset_right = 897.0
-offset_bottom = 355.0
+offset_left = 1450.5
+offset_top = 803.0
+offset_right = 1728.5
+offset_bottom = 844.0
+text = "Send"
+
+[node name="response" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 25.5
+offset_top = 24.0
+offset_right = 1778.5
+offset_bottom = 781.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="TextEdit" type="TextEdit" parent="ColorRect"]
 layout_mode = 0
-offset_left = 569.0
-offset_top = 377.0
-offset_right = 847.0
-offset_bottom = 418.0
-text = "Send"
-
-[node name="TextEdit" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = -838.0
-offset_top = 377.0
-offset_right = 513.0
-offset_bottom = 418.0
+offset_left = 43.5
+offset_top = 803.0
+offset_right = 1394.5
+offset_bottom = 844.0
 placeholder_text = "Enter Message Here"
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+timeout = 20.0
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

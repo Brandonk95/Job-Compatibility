@@ -7,7 +7,7 @@
 [node name="JobPuck" type="CanvasLayer" node_paths=PackedStringArray("http_request", "text_response")]
 script = ExtResource("1_qgt12")
 http_request = NodePath("HTTPRequest")
-text_response = NodePath("JobDescription")
+text_response = NodePath("ColorRect/JobDescription")
 prompt = "Name: Navi the CareerNavigatorPersonality: Friendly, knowledgeable, and realisticPurpose: To help users explore potential career paths by providing detailed insights into different jobs, including:Day-to-day tasksCommon challenges & stressesMajor rewards & job satisfactionSalary expectations & job outlookRequired education & skillsCareer growth opportunitiesExample Interactions:📌 User: \"Tell me about being a software engineer.\"🤖 Navi: \"Software engineers spend most of their day writing, testing, and debugging code. Depending on the company, you might work on large projects with a team or focus on fixing bugs. Expect lots of problem-solving, sometimes long hours, and occasional tight deadlines. The biggest joys? Seeing your code come to life and solving challenging problems. Salaries typically start around $70K but can go over $150K with experience!\"📌 User: \"What’s it like being a paramedic?\"🤖 Navi: \"Paramedics have unpredictable shifts and work under high-pressure situations. You’ll respond to emergencies, provide life-saving treatment, and transport patients to hospitals. The stress is high, but the reward of saving lives is incredible. The average salary is around $50K, but it varies by location.\"📌 User: \"What’s a job that pays well with low stress?\"🤖 Navi: \"Consider being a data analyst or technical writer! Both have salaries around $70K+ and don’t require high-stress situations like emergency work or strict deadlines.\""
 type = "You are tasked with providing a concise job description in less than four sentences. Each description must include the job's main responsibilities, average salary, and any necessary certifications or qualifications. Do not include any additional commentary, introductions, or formatting—only the job explanation itself. Your response will be directly used in a job selection platform."
 metadata/JobName = "Cloud Computing"
@@ -16,32 +16,7 @@ metadata/JobName = "Cloud Computing"
 offset_right = 1919.0
 offset_bottom = 1080.0
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-timeout = 20.0
-
-[node name="Title" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -928.0
-offset_top = 25.0
-offset_right = 453.0
-offset_bottom = 190.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 120
-text = "You Got A Match!"
-metadata/_edit_group_ = true
-
-[node name="Flame" type="Sprite2D" parent="Title"]
-visible = false
-z_index = 3
-position = Vector2(744.5, 85)
-scale = Vector2(0.204174, 0.204174)
-texture = ExtResource("2_5r2nh")
-
-[node name="JobTitle" type="Label" parent="."]
+[node name="JobTitle" type="Label" parent="ColorRect"]
 offset_left = 25.0
 offset_top = 213.0
 offset_right = 1909.0
@@ -51,7 +26,26 @@ theme_override_font_sizes/font_size = 70
 text = "{Job Name} - changed by adjusting metadata in root"
 autowrap_mode = 3
 
-[node name="Button" type="Button" parent="."]
+[node name="JobDescription" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -934.5
+offset_top = -135.0
+offset_right = 925.5
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "Short description written by AI, Using the metadata string assigned to the root node we can grab the name and run a short explanation"
+autowrap_mode = 2
+clip_text = true
+
+[node name="Button" type="Button" parent="ColorRect"]
 offset_left = 45.0
 offset_top = 930.0
 offset_right = 395.0
@@ -63,26 +57,36 @@ localize_numeral_system = false
 theme_override_font_sizes/font_size = 60
 text = "Learn More"
 
-[node name="ML Icon" type="Sprite2D" parent="Button"]
+[node name="ML Icon" type="Sprite2D" parent="ColorRect/Button"]
 visible = false
 position = Vector2(418, 57)
 scale = Vector2(0.214837, 0.214837)
 texture = ExtResource("3_r7e4t")
 
-[node name="JobDescription" type="Label" parent="."]
-anchors_preset = 8
+[node name="Title" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -935.0
-offset_top = -135.0
-offset_right = 925.0
-offset_bottom = 358.0
+offset_left = -927.5
+offset_top = 25.0
+offset_right = 453.5
+offset_bottom = 190.0
 grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 45
-text = "Short description written by AI, Using the metadata string assigned to the root node we can grab the name and run a short explanation"
-autowrap_mode = 2
-clip_text = true
+theme_override_font_sizes/font_size = 120
+text = "You Got A Match!"
+metadata/_edit_group_ = true
+
+[node name="Flame" type="Sprite2D" parent="ColorRect/Title"]
+visible = false
+z_index = 3
+position = Vector2(744.5, 85)
+scale = Vector2(0.204174, 0.204174)
+texture = ExtResource("2_5r2nh")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+timeout = 20.0
+
+[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]

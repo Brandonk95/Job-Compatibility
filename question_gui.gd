@@ -17,7 +17,9 @@ func pushValueGlobal(amount: int):
 
 
 func _on_love_pressed() -> void:
+	GlobalScript.addJobResult(question)
 	pushValueGlobal(2)
+	
 
 
 func _on_like_pressed() -> void:
