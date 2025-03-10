@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch0qo2c1s53sn"]
+[gd_scene load_steps=7 format=3 uid="uid://ch0qo2c1s53sn"]
 
 [ext_resource type="Script" uid="uid://dhsgqicf7q5qu" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://btg7eoai4j3n4" path="res://canvas_layer.gd" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b66sm45tvcunj" path="res://Main Menu.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://b8406mfce1o2e" path="res://question_gui.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://bik2r20gau0fy" path="res://Background.png" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dmxj2epphoehd" path="res://Results.tscn" id="4_lquwl"]
@@ -9,68 +10,70 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_0xm2m")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Main Menu" parent="." instance=ExtResource("2_7mycd")]
+
+[node name="Questions" type="CanvasLayer" parent="."]
 script = ExtResource("2_1bvp3")
 
-[node name="Q1" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q1" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q2" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q2" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q3" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q3" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q4" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q4" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q5" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q5" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q6" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q6" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q7" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q7" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q8" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q8" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q9" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q9" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q10" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q10" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q11" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q11" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q12" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q12" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q13" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q13" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q14" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q14" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q15" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q15" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q16" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q16" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q17" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q17" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q18" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q18" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q19" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q19" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q20" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q20" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q21" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q21" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q22" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q22" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q23" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q23" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q24" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q24" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q25" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q25" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q26" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q26" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q27" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q27" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q28" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q28" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q29" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q29" parent="Questions" instance=ExtResource("2_h2yge")]
 
-[node name="Q30" parent="CanvasLayer" instance=ExtResource("2_h2yge")]
+[node name="Q30" parent="Questions" instance=ExtResource("2_h2yge")]
 
 [node name="Results" type="CanvasLayer" parent="."]
 visible = false
@@ -82,3 +85,11 @@ visible = false
 position = Vector2(975, 545)
 scale = Vector2(100, 100)
 texture = ExtResource("4_1bvp3")
+
+[node name="Numbers" type="Label" parent="."]
+offset_right = 63.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 60
+text = "0/30"
+
+[connection signal="start" from="Main Menu" to="." method="_on_main_menu_start"]

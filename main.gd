@@ -2,51 +2,63 @@ extends Node2D
 
 #Gets all the nodes and connects the button clicking to the nextQuestion function
 func _ready():
-	var questions = $CanvasLayer.get_children()
-	for Q in questions:
-		Q.connect("nextQuestion", nextQuestion)
-		Q.hide()
-		#Connect the signals and hide the node
-	$CanvasLayer/Q1.show()
-	$Results/CanvasLayer.hide()
+	var questions = $Questions.get_children() #get all questions in array
+	for Q in questions: # Iterate over questions
+		#Connect the nextQuestion signal to appropriate function
+		Q.connect("nextQuestion", nextQuestion) 
+		Q.hide() #Hide question
+	$Numbers.text = "1/30" #Set text to first question
+	
+	$Results/CanvasLayer.hide() #hide results page
 
 """
-The next question function takes an index and hides that question
-and shows the next question
+The nextQuestion takes in a question node "theNode" as input, hides it then 
+shows the next question and adjusts the question counter
 
-The reason it subtracts 1 from the index is becasue the question passes
-its question number in which is 1 more than its actual index in the tree
+If the question is the last question it hides that question and readys the
+results
 """
 func nextQuestion(theNode):
-	var index = theNode.get_index()
-	print(index)
-	var allChildren = $CanvasLayer.get_children()
-	var finalIndex = allChildren.size()
-	print(finalIndex)
-	if index >= finalIndex:
+	var index = theNode.get_index() #get index of node in relation to parent
+	var allChildren = $Questions.get_children()
+	#get amt of question to determine the total amount of questions
+	var finalIndex = allChildren.size() 
+	#change question counter
+	$Numbers.text = str(index + 1) + "/" + str(finalIndex) 
+	
+	#If its the last question hide it and ready results
+	if index >= finalIndex - 1:
 		theNode.hide()
 		readyResults()
 		return
-	var newNode = $CanvasLayer.get_child(index + 1)
+	# gets the next question node 
+	var newNode = $Questions.get_child(index + 1)
+	
+	# Hides current question and shows next question 
 	theNode.hide()
 	newNode.show()
 
-#This calls the GLobalScript to get the top cluster values
-# GET TOP CLUSTERS RETURNS NOTHING RN CHANGE TO RETURN FOR PRACTICAL USE
+#Readys and sends results
 func readyResults():
-	GlobalScript.getTopClusters()
-	$CanvasLayer.hide()
-	var jobMatches = GlobalScript.getTopCareers()
-	sendResults(jobMatches)
+	GlobalScript.getTopClusters() #tells GlobalScript to sort top clusters
+	$Questions.hide() # hide all questions
+	var jobMatches = GlobalScript.getTopCareers() # get the top careers
+	sendResults(jobMatches) #Send the results for further use
 	
 	
 
+#Takes array results and iterates over it to pass into pucks & AI
 func sendResults(results: Array):
-	var iteration = 0
-	for item in results:
-		if iteration >= 6:
+	var iteration = 0 #set iteration variable
+	for item in results: #iterate over items in results array
+		if iteration >= 6: #Since there are only 6 pucks stop at 6
 			break
-		$Results/CanvasLayer.passJobIntoAI(item, iteration)
-		iteration += 1
+		$Results/CanvasLayer.passJobIntoAI(item, iteration) #Passes job into AI
+		iteration += 1 
 	$Results/CanvasLayer.show()
+	#Show results and show amount of pucks depending on iteration
 	$Results/CanvasLayer.showPucks(iteration)
+
+
+func _on_main_menu_start() -> void:
+	nextQuestion($Questions/Q1) #starts the first question

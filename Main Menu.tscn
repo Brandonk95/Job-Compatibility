@@ -42,16 +42,17 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="Main Menu" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_5b7ti")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="StartScreen" type="CanvasLayer" parent="."]
 
-[node name="Background" type="Sprite2D" parent="CanvasLayer"]
+[node name="Background" type="Sprite2D" parent="StartScreen"]
 position = Vector2(969, 536)
 scale = Vector2(1.33529, 1.33529)
 texture = ExtResource("2_dvdtt")
 
-[node name="Title" type="Label" parent="CanvasLayer"]
+[node name="Title" type="Label" parent="StartScreen"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -65,13 +66,13 @@ theme_override_font_sizes/font_size = 120
 text = "Job Matcher"
 metadata/_edit_group_ = true
 
-[node name="Flame" type="Sprite2D" parent="CanvasLayer/Title"]
+[node name="Flame" type="Sprite2D" parent="StartScreen/Title"]
 z_index = 3
 position = Vector2(744.5, 85)
 scale = Vector2(0.204174, 0.204174)
 texture = ExtResource("3_i5qic")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="StartScreen"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -86,7 +87,104 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 70
 text = "It starts with a $0"
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Button" type="Button" parent="StartScreen"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -235.0
+offset_top = -230.0
+offset_right = 235.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i5qic")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xwd2w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_i5qic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wfgb2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvdtt")
+text = "Directions"
+
+[node name="Credits" type="Button" parent="StartScreen"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -91.0
+offset_right = 470.0
+grow_vertical = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i5qic")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xwd2w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_i5qic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wfgb2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvdtt")
+text = "Credits
+"
+
+[node name="Directions" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Background" type="Sprite2D" parent="Directions"]
+position = Vector2(969, 536)
+scale = Vector2(1.33529, 1.33529)
+texture = ExtResource("2_dvdtt")
+
+[node name="Title" type="Label" parent="Directions"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -359.5
+offset_top = 100.0
+offset_right = 339.5
+offset_bottom = 265.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 120
+text = "Job Matcher"
+metadata/_edit_group_ = true
+
+[node name="Flame" type="Sprite2D" parent="Directions/Title"]
+z_index = 3
+position = Vector2(744.5, 85)
+scale = Vector2(0.204174, 0.204174)
+texture = ExtResource("3_i5qic")
+
+[node name="Label" type="Label" parent="Directions"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -821.0
+offset_top = -295.5
+offset_right = 821.0
+offset_bottom = 295.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "This job matcher will give you an random assortment of 30 prompts that cover various job areas. Each question has a job associated with it and you will rate it from Love-Hate. After completing these questions you will be prompted with up to 6 jobs that come from 2 areas. First ones that you rated with Love and second ones that are in the job cluster you gave the most points. Love +2 points, Like +1, Unsure +0, Dislike -1, Hate -2. Upon completion an AI genrated job description will be presented which will show schooling, income, and other related things with an option to learn more where you can ask the AI question about that specific job."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Start" type="Button" parent="Directions"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -114,4 +212,115 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_wfgb2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_dvdtt")
 text = "Get Me That Job"
 
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[node name="Credits" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Background" type="Sprite2D" parent="Credits"]
+position = Vector2(969, 536)
+scale = Vector2(1.33529, 1.33529)
+texture = ExtResource("2_dvdtt")
+
+[node name="Title" type="Label" parent="Credits"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -359.5
+offset_top = 100.0
+offset_right = 339.5
+offset_bottom = 265.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 120
+text = "Credits"
+horizontal_alignment = 1
+metadata/_edit_group_ = true
+
+[node name="Flame" type="Sprite2D" parent="Credits/Title"]
+visible = false
+z_index = 3
+position = Vector2(744.5, 85)
+scale = Vector2(0.204174, 0.204174)
+texture = ExtResource("3_i5qic")
+
+[node name="Label" type="Label" parent="Credits"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -821.0
+offset_top = -295.5
+offset_right = 821.0
+offset_bottom = 295.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Godot Documentation
+ai.brandonspg.com (teamates ai running on home server)
+Github
+
+We have an external document storing our chats with external AI hosted by Team Member Brandon Keesee"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Start" type="Button" parent="Credits"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -235.0
+offset_top = -230.0
+offset_right = 235.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i5qic")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xwd2w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_i5qic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wfgb2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvdtt")
+text = "Get Me That Job"
+
+[node name="Back" type="Button" parent="Credits"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -235.0
+offset_top = -230.0
+offset_right = 235.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i5qic")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xwd2w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_12kdf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_i5qic")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wfgb2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dvdtt")
+text = "Back"
+
+[connection signal="pressed" from="StartScreen/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="StartScreen/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Directions/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Credits/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Credits/Back" to="." method="_on_back_pressed"]

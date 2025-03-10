@@ -21,6 +21,7 @@ func _ready():
 func _physics_process(delta):
 	pass
 	
+#Sets JobName meta data to job input, changes puck title, sends query to llama
 func adjustMetaData(job: String):
 	set_meta("JobName",job)
 	$ColorRect/JobTitle.text = get_meta("JobName")
@@ -63,6 +64,6 @@ func _on_http_request_request_completed(result, response_code, headers, body):
 		print("Request failed with response code: ", response_code)
 		is_generating = false
 
-
+#Sends the signal to start learn more chat, passes in the title for prompt
 func _on_button_pressed() -> void:
 	startChat.emit($ColorRect/JobTitle.text)

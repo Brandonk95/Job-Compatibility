@@ -15,7 +15,6 @@ func _ready():
 	#var scene = scene
 	#$JobTitle.text = get_meta("JobName")
 	#send_to_ollama(get_meta("JobName"))
-	send_to_ollama("cum")
 	#add_child(http_request) #Theres an error here pookie
 	http_request.connect("request_completed", Callable(self, "_on_request_completed"))
 	
@@ -31,6 +30,7 @@ func _physics_process(delta):
 			current_response += response_chunk
 			text_response.text = current_response
 			response_chunk = "" 
+
 
 func startLearnMore(text: String):
 	text_response.text = text
