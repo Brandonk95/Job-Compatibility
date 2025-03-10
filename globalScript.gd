@@ -1,5 +1,7 @@
 extends Node
 
+
+
 """
 These are the 4 things the entire program functions on here i will explain what they do
 and how to add new things
@@ -38,10 +40,14 @@ var theTopPairs: Array = []
 var theTopClusters: Array = []
 
 # Simply returns the question with the number provided for display and storage
-func getQuestion(number: int):
-	return Questions[number]
+func getQuestion():
+	var theNumber = randi_range(0, Questions.size())
+	var theQuestion = Questions[theNumber + 1]
+	Questions.erase(theQuestion)
+	return theQuestion
 	
-
+func getLengthQuestions():
+	return Questions.size()
 #Updates the career cluster value by calliing change value
 func updateCareerCluster(question: String, amount: int):
 	changeValue(question, amount)

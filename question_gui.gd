@@ -1,19 +1,19 @@
 extends Control
 
-@export var questionNumber: int = 1
+
 var question: String = ""
 signal nextQuestion(index: int)
 
 # Calls globalScript.gd to get the question based on the question number
 func _ready() -> void:
-	question = GlobalScript.getQuestion(questionNumber)
+	question = GlobalScript.getQuestion()
 	$Question.text = question
 
 # Sends the value associated with a certain button to the global script
 # Then emits the next question for main to use
 func pushValueGlobal(amount: int):
 	GlobalScript.updateCareerCluster(question, amount)
-	nextQuestion.emit(questionNumber)
+	nextQuestion.emit(self)
 
 
 func _on_love_pressed() -> void:

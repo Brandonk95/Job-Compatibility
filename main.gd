@@ -17,14 +17,18 @@ and shows the next question
 The reason it subtracts 1 from the index is becasue the question passes
 its question number in which is 1 more than its actual index in the tree
 """
-func nextQuestion(index: int):
-	var node = $CanvasLayer.get_child(index - 1)
-	if index == 65:
-		node.hide()
+func nextQuestion(theNode):
+	var index = theNode.get_index()
+	print(index)
+	var allChildren = $CanvasLayer.get_children()
+	var finalIndex = allChildren.size()
+	print(finalIndex)
+	if index >= finalIndex:
+		theNode.hide()
 		readyResults()
 		return
-	var newNode = $CanvasLayer.get_child(index)
-	node.hide()
+	var newNode = $CanvasLayer.get_child(index + 1)
+	theNode.hide()
 	newNode.show()
 
 #This calls the GLobalScript to get the top cluster values
