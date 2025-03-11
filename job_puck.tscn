@@ -17,6 +17,7 @@ offset_right = 1919.0
 offset_bottom = 1080.0
 
 [node name="JobTitle" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 213.0
 offset_right = 1909.0
@@ -46,6 +47,7 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 930.0
 offset_right = 395.0

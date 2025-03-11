@@ -4,22 +4,14 @@ extends Node
 @export var prompt:String
 @export var type:String
 var result
-var current_response = ""
-var response_chunk = ""
 var is_generating = false
 var response_message
 signal startChat(currentResponse: String)
 
+#Loads in basic necessites 
 func _ready():
 	$ColorRect/JobDescription.text = "Loading A Breif Description..."
-	#$JobTitle.text = get_meta("JobName")
-	#send_to_ollama(get_meta("JobName"))
-	#send_to_ollama(get_meta("JobName"))
-	#add_child(http_request) #Theres an error here pookie
 	$HTTPRequest.request_completed.connect(_on_http_request_request_completed)
-	
-func _physics_process(delta):
-	pass
 	
 #Sets JobName meta data to job input, changes puck title, sends query to llama
 func adjustMetaData(job: String):
@@ -27,6 +19,7 @@ func adjustMetaData(job: String):
 	$ColorRect/JobTitle.text = get_meta("JobName")
 	send_to_ollama(get_meta("JobName"))
 
+#Sends the message to ollama (my home AI service) creates a prompt for it, allowing context and sends it off on an HTTP request to my API
 func send_to_ollama(message):
 	message = "Prompt: \n" + prompt + "\n" + type + "\nMessage:" + message
 
@@ -43,7 +36,7 @@ func send_to_ollama(message):
 	if error != OK:
 		print("An error occurred in the HTTP request.")
 
-
+#When the AI request is completed and has a full response, the code will check to make sure there is no error codes, it will then load the resposnse into a JSON, parse it, then change the 'response' label to match the actual AI response
 func _on_http_request_request_completed(result, response_code, headers, body):
 	print("Response Code: ", response_code)
 	if response_code == 200:

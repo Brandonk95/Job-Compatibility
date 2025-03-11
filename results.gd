@@ -1,5 +1,6 @@
 extends CanvasLayer
-
+var saveiteration
+@export var ai : Control
 # Hides all pucks and AI window on start
 func _ready() -> void:
 	for puck in $Pucks.get_children():
@@ -20,6 +21,7 @@ func hidePucks():
 		
 #Shows a certain amount of pucks (max of 6)
 func showPucks(amount: int):
+	saveiteration = amount
 	var iteration: int = 0
 	for puck in $Pucks.get_children():
 		if iteration >= amount:
@@ -33,3 +35,13 @@ func openAiChat(text: String):
 	hidePucks()
 	$AI.startLearnMore(text)
 	$AI.show()
+
+#Closes ai chat, shows pucks and title while hiding chat
+func closeAIChat():
+	showPucks(saveiteration)
+	ai.hide()
+	$Title.show()
+	
+
+#func _on_job_puck_start_chat(currentResponse):
+	#pass # Replace with function body.

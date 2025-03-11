@@ -45,13 +45,14 @@ text = "Send"
 
 [node name="response" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_left = 25.5
-offset_top = 24.0
-offset_right = 1778.5
+offset_left = 26.0
+offset_top = 40.0
+offset_right = 1779.0
 offset_bottom = 781.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 autowrap_mode = 2
+clip_text = true
 
 [node name="TextEdit" type="TextEdit" parent="ColorRect"]
 layout_mode = 0
@@ -64,5 +65,21 @@ placeholder_text = "Enter Message Here"
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 timeout = 20.0
 
+[node name="Close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 869.0
+offset_top = -443.0
+offset_right = 900.0
+offset_bottom = -412.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X"
+
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
