@@ -24,7 +24,7 @@ func nextQuestion(theNode):
 	#get amt of question to determine the total amount of questions
 	var finalIndex = allChildren.size() 
 	#change question counter
-	$Numbers.text = str(index + 1) + "/" + str(finalIndex) 
+	$Numbers.text = str(index + 1) + "/" + str(finalIndex - 1) 
 	
 	#If its the last question hide it and ready results
 	if index >= finalIndex - 1:

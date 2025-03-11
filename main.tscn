@@ -75,6 +75,8 @@ script = ExtResource("2_1bvp3")
 
 [node name="Q30" parent="Questions" instance=ExtResource("2_h2yge")]
 
+[node name="Q31" parent="Questions" instance=ExtResource("2_h2yge")]
+
 [node name="Results" type="CanvasLayer" parent="."]
 
 [node name="CanvasLayer" parent="Results" instance=ExtResource("4_lquwl")]
